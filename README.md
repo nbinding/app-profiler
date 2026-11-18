@@ -32,7 +32,11 @@ python3 -m http.server 8000   # then visit http://localhost:8000
 
 ## Tech
 
-Single static `index.html` — vanilla JS, no framework, no build step. State in a
+Single static `index.html` — vanilla JS, no framework, no build step. Styled with
+the [nbinding design system](https://github.com/nbinding/nbinding-design-system)
+(fonts, colour tokens, light and dark themes, buttons, fields, dialog, toast): a
+copy of its `src/` lives in `ds/`. Update it by copying the design system's `src/`
+over that folder. State in a
 plain object, IndexedDB for persistence, File System Access API for Save/Open
 (with a download fallback on Safari/Firefox). See [prd.md](prd.md) for the full
 product spec.
@@ -40,10 +44,10 @@ product spec.
 ## Branches & deploy
 
 - `main` — development. Contains everything (`index.html`, `prd.md`, this README).
-- `public` — the deploy branch GitHub Pages serves. Carries **only** `index.html`,
-  so the PRD is not published to the live site.
+- `public` — the deploy branch GitHub Pages serves. Carries **only** `index.html`
+  and `ds/`, so the PRD is not published to the live site.
 
-Deploy the current `index.html` to the live site:
+Deploy the current `index.html` and `ds/` to the live site:
 
 ```
 ./deploy.sh
